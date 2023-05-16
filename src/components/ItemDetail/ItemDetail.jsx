@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { ItemCount } from "../ItemCount/ItemCount";
+import { Link } from "react-router-dom";
 
 const ItemDetail = ({
   id,
@@ -10,12 +12,17 @@ const ItemDetail = ({
   imagen,
   stock,
 }) => {
+  const [quantityAdded, SetQuantityAdded] = useState(0);
+  const handleOnAdd = (quantity) => {
+    SetQuantityAdded(quantity);
+  };
+
   return (
-    <div className="card mb-3" /* style={{'max-width: 540'}} */>
+    <div className="card mb-3">
       <div className="row g-0">
         <div className="col-md-4">
           <img
-            src={"/img/" + imagen}
+            src={"../img/" + imagen}
             className="img-fluid rounded-start"
             alt={nombre}
           />
@@ -29,11 +36,13 @@ const ItemDetail = ({
           </div>
         </div>
       </div>
-      <ItemCount
-        inicio={1}
-        stock={stock}
-        onAdd={(cantidad) => console.log("Cantidad agregada", cantidad)}
-      />
+      {quantityAdded > 0 ? (
+        <Link to="/cart" className="Option">
+          Terminar compra{" "}
+        </Link>
+      ) : (
+        <ItemCount inicio={1} stock={stock} onAdd={handleOnAdd} />
+      )}
     </div>
   );
 };
