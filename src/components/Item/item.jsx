@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 const Item = ({
   id,
   nombre,
@@ -19,7 +18,9 @@ const Item = ({
         <h6 className="card-title">Marca: {marca}</h6>
         <p className="card-text">{detalle}</p>
         <p className="card-text">$ {precio}</p>
-        <Link to={`/item/${id}`} className="btn btn-warning">Ver detalle</Link>
+        <Link to={`/item/${id}`} className="Option btn btn-warning">
+          Ver detalle
+        </Link>
       </div>
     </div>
   );

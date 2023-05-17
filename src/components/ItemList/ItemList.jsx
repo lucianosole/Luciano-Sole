@@ -1,6 +1,6 @@
 import { Item } from "../Item/item";
 
-const ItemList = ({products}) => {
+const ItemList = ({ products }) => {
   return (
     <div className="row">
       {products.map((prod) => (

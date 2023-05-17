@@ -322,10 +322,10 @@ export const getProducts = () => {
   });
 };
 
-export const getProductById = (productId) => {
+export const getProductById = (id) => {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve(products.find((prod) => prod.id === productId));
+      resolve(products.find((producto) => producto.id === parseInt(id)));
     }, 500);
   });
 };
