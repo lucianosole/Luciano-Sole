@@ -16,7 +16,6 @@ const ItemDetail = ({
   const handleOnAdd = (quantity) => {
     SetQuantityAdded(quantity);
   };
-
   return (
     <div className="card mb-3">
       <div className="row g-0">
